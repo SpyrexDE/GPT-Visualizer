@@ -12,7 +12,7 @@ const textResult = document.getElementById("text-result");
 const animationDiv = document.getElementById("animation");
 
 completeBtn.addEventListener("click", async () => {
-	const prompt = promptInput.value;
+	const prompt = promptInput.value.trim();
 
 	if (prompt === "") {
 		alert("Please enter a prompt");
@@ -36,7 +36,8 @@ completeBtn.addEventListener("click", async () => {
         "n": 1,
         "stop": "\n",
         "model": "davinci",
-        "logprobs": 5
+        "logprobs": 5,
+        "temperature": 0,
     };
 
     // Send the request to OpenAI's API
@@ -49,11 +50,14 @@ completeBtn.addEventListener("click", async () => {
     const data = await response.json();
 
     if (response.ok) {
-        const choices = data.choices[0].text.trim().split(" ");
-    
+        console.log(Object.keys(data.choices[0].logprobs.top_logprobs[0]).length);
+        const choices = data.choices[0].logprobs.top_logprobs[0];
+        
+        const keys = Object.keys(choices);
+
         // Loop through each word in the completed text and add it to the animation div
-        for (let i = 0; i < choices.length; i++) {
-            const word = choices[i];
+        for (let i = 0; i < keys.length; i++) {
+            const word = keys[i].trim();
     
             // Create a div for the word and its probability
             const wordDiv = document.createElement("div");
