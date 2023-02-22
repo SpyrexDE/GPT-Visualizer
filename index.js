@@ -1,4 +1,3 @@
-const apiKey = "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";
 const url = "https://api.openai.com/v1/completions";
 const headers = {
   "Content-Type": "application/json",
@@ -35,7 +34,7 @@ completeBtn.addEventListener("click", async () => {
         "max_tokens": 1,
         "n": 1,
         "stop": "\n",
-        "model": "davinci",
+        "model": "text-davinci-003",
         "logprobs": 5,
         "temperature": 0,
     };
@@ -107,7 +106,4 @@ completeBtn.addEventListener("click", async () => {
         // Show an error message if the request fails
         textResult.innerText = "Error: " + data.error.message;
     }
-    
-      
-    
 });
