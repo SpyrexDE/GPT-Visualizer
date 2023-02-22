@@ -1,4 +1,4 @@
-const apiKey = "API_KEY";
+const apiKey = "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";
 const url = "https://api.openai.com/v1/completions";
 const headers = {
   "Content-Type": "application/json",
