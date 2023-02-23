@@ -69,6 +69,7 @@ completeBtn.addEventListener("click", async () => {
     const data = await response.json();
 
     if (response.ok) {
+        console.log(data);
         console.log(Object.keys(data.choices[0].logprobs.top_logprobs[0]).length);
         const choices = data.choices[0].logprobs.top_logprobs[0];
         
