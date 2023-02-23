@@ -18,7 +18,7 @@
 			background-color: #f2f2f2;
 		}
 
-		#prompt {
+		.prompt {
 			margin-bottom: 20px;
 			padding: 10px;
 			border: none;
@@ -76,17 +76,18 @@
 			margin-top: 5px;
 		}
 	</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 </head>
 <body>
 	<h1>OpenAI Language Model Text Completion Visualization</h1>
-	<input type="text" id="prompt" placeholder="Type a text prompt here">
+	<input type="text" class="prompt" id="api-key" placeholder="Enter your OpenAI api key">
+	<input type="text" class="prompt" id="prompt" placeholder="Type a text prompt here">
 	<button id="btn-complete">Complete Text</button>
 	<div id="result">
 		<p id="text-result"></p>
 		<div id="animation"></div>
 	</div>
-
-    <script src="api-key.js"></script>
 	<script src="index.js"></script>
 </body>
 </html>

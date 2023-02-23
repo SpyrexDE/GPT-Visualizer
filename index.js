@@ -1,14 +1,34 @@
 const url = "https://api.openai.com/v1/completions";
-const headers = {
-  "Content-Type": "application/json",
-  "Authorization": "Bearer " + apiKey,
-};
+
+function getHeaders() {
+    return {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+        "Accept-Charset": "utf-8"
+    };
+}
 
 const promptInput = document.getElementById("prompt");
 const completeBtn = document.getElementById("btn-complete");
 const resultDiv = document.getElementById("result");
 const textResult = document.getElementById("text-result");
 const animationDiv = document.getElementById("animation");
+const apiKeyInput = document.getElementById("api-key");
+
+var apiKey = "";
+
+// save api key input
+apiKeyInput.value = localStorage.getItem("apiKey");
+apiKeyInput.addEventListener("change", () => {
+    localStorage.setItem("apiKey", apiKeyInput.value);
+    apiKey = apiKeyInput.value;
+});
+
+// load api key input and restore apiKeyInput
+apiKey = localStorage.getItem("apiKey");
+apiKeyInput.value = apiKey;
+
+
 
 completeBtn.addEventListener("click", async () => {
 	const prompt = promptInput.value.trim();
@@ -42,7 +62,7 @@ completeBtn.addEventListener("click", async () => {
     // Send the request to OpenAI's API
     const response = await fetch(url, {
         method: "POST",
-        headers: headers,
+        headers: getHeaders(),
         body: JSON.stringify(requestBody)
     });
 
