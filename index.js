@@ -23,7 +23,7 @@ apiKeyInput.addEventListener("change", () => {
 });
 
 // load api key input and restore apiKeyInput
-apiKey = localStorage.getItem(" apiKey");
+apiKey = localStorage.getItem("apiKey");
 apiKeyInput.value = apiKey;
 
 
