@@ -51,7 +51,7 @@ completeBtn.addEventListener("click", async () => {
         "stop": "",
         "model": "text-davinci-003",
         "logprobs": 5,
-        "temperature": 0.7,
+        "temperature": 0,
     };
 
     // Send the request to OpenAI's API
