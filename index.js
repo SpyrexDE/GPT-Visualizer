@@ -49,7 +49,7 @@ completeBtn.addEventListener("click", async () => {
         "max_tokens": 1,
         "n": 1,
         "stop": "",
-        "model": "text-davinci-003",
+        "model": "gpt-3.5-turbo",
         "logprobs": 5,
         "temperature": 0,
     };
